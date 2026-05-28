@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unfollow Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo">unfollow<span>.</span>check</div>
+      <div class="tagline">Instagram · non-followers finder</div>
+    </header>
+
+    <div class="upload-grid">
+      <div class="upload-card" id="card-followers">
+        <input type="file" accept=".txt" id="file-followers" aria-label="Upload followers file">
+        <div class="upload-icon">↓</div>
+        <span class="upload-label">followers.txt</span>
+        <span class="upload-sub">People who follow you</span>
+        <div class="upload-count" id="count-followers"></div>
+      </div>
+      <div class="upload-card" id="card-following">
+        <input type="file" accept=".txt" id="file-following" aria-label="Upload following file">
+        <div class="upload-icon">↑</div>
+        <span class="upload-label">following.txt</span>
+        <span class="upload-sub">People you follow</span>
+        <div class="upload-count" id="count-following"></div>
+      </div>
+    </div>
+
+    <button class="run-btn" id="run-btn" disabled>Find non-followers</button>
+
+    <section id="results-section">
+      <div class="results-header">
+        <span class="results-title">Not following back</span>
+        <span class="results-count"><strong id="total-count">0</strong> accounts</span>
+      </div>
+      <input class="search-bar" type="text" id="search" placeholder="Search usernames...">
+      <div class="user-list" id="user-list"></div>
+      <div class="load-more-wrap hidden" id="load-more-wrap">
+        <button class="load-more-btn" id="load-more-btn">Load more</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/parser.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
