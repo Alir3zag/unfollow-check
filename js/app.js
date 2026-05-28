@@ -48,6 +48,7 @@
 
     UI.setFiltered(allUsers);
     UI.renderRows(true);
+    document.getElementById('export-btn').classList.remove('hidden');
     document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
   });
 
@@ -61,4 +62,16 @@
 
   // Bind list click events (copy + open)
   UI.bindListEvents();
+
+  // Export
+  document.getElementById('export-btn').addEventListener('click', () => {
+    const content = allUsers.join('\n');
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'non-followers.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
 })();
